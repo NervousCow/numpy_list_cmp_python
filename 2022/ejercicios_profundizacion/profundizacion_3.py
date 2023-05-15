@@ -23,7 +23,7 @@ Por otro lado se dispone de la lista de productos comprados "lista_compra_id"
 por un cliente con sus códigos de productos
 
 Alumno, su objetivo es crear una lista nueva "lista_compra_productos" 
-que sea la transformación de la lista "lista_compra_ida",
+que sea la transformación de la lista "lista_compra_id",
 que en vez de estar tener los "ID" de los productos tenga el "nombre"
 de cada producto según su id.
 
@@ -38,7 +38,7 @@ no esten registrados en el sistema, en esos casos se debe
 almacenar en la lista la palabra 'NaN', para ello puede hacer uso
 de condicionales PERO recomendamos leer atentamente el método "get"
 de diccionarios que tiene un parametro configurable respecto
-que sucede sino encuentra la "key" en el diccionario.
+que sucede si no encuentra la "key" en el diccionario.
 
 NOTA: Esta información bien podría ser una tabla SQL: id | producto
 de una base de datos como veran más adelante.
@@ -49,8 +49,7 @@ en análisis de datos.
 if __name__ == '__main__':
     print("Acercamiento al uso de datos relacionales")
 
-    producto = {
-                556070: 'Auto',
+    producto = {556070: 'Auto',
                 704060: 'Moto',
                 42135: 'Celular',
                 1264: 'Bicicleta',
@@ -62,5 +61,8 @@ if __name__ == '__main__':
     # A partir de aquí escriba el código que resuelve el enunciado
     # Leer el enunciado con atención y consultar cualquier duda
 
+    lista_compra_productos = [producto.get(x, 'Nan') for x in lista_compra_id]
+
+    print(lista_compra_productos)
 
     print("terminamos")
